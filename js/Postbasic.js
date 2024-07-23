@@ -5,7 +5,7 @@ FetchData.addEventListener('click', FetchJSONdata);
 function FetchJSONdata() {
     let xhr = new XMLHttpRequest();
 
-    xhr.open('POST', 'https://jsonplaceholder.typicode.com/posts', true);
+    xhr.open('POST', 'https://dummy.restapiexample.com/api/v1/create', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xhr.onprogress = function () {
