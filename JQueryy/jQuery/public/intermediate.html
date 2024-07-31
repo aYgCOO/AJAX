@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Intermediate jQuery</title>
+</head>
+<style>
+     body{
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     }
+</style>
+<body>
+     <div id="myDiv"></div><br>
+     <div id="anime"></div><br>
+     <div id="customAnimation"></div><br>
+
+     <div id="parent">
+          <div id="child">Child</div>
+          <div id="sibling">Sibling</div>
+     </div>
+
+
+     <a href="index.html" target="_blank">Basic jQuery</a><br>
+     <a href="advance.html" target="_blank">Advance jQuery</a><br>
+     <script src="../js/jQuery-downleded-files/jquery-3.7.1.min.js"></script>
+     <script>
+          /* Intermediate concept of jQuery */
+          $("a").css({textDecoration: "none", fontWeight: "bolder"});
+          //1) Chaining 
+          $("#myDiv").css({ padding: "100px", backgroundColor: "yellow", width: "100px", margin: "auto" }).slideUp(5000).slideDown(2000); //Perform multiple actions on the same element.
+
+          // 2) Effects and Animations
+          $("#anime").css({ padding: "100px", backgroundColor: "brown", width: "100px", margin: "auto" }).fadeOut("slow").fadeIn("slow");
+
+          // Custom animation 
+          $("#customAnimation").css({ padding: "100px", backgroundColor: "green", width: "100px", margin: "auto" }).animate({
+               opacity: 0.3,
+               height: "50%"
+          }, 3000);
+
+          //3) Traversing the DOM
+          const parentStyle = {
+               padding: "100px",
+               backgroundColor: "red",
+               width: "100px",
+               margin: "auto"
+          };
+
+          const childAndSiblingStyle = {
+               padding: "50px",
+               margin: "auto",
+               width: "50%",
+               margin: "20px"
+          };
+
+          const childStyle = { childAndSiblingStyle, backgroundColor: "green" };
+          const siblingStyle = { childAndSiblingStyle, backgroundColor: "blue" };
+
+          $("#parent").css(parentStyle).find("#child").css("color", "pink");
+          $("#child").css(childStyle).parent("#parent").css("background-color", "gray");
+          $("#sibling").css(siblingStyle).siblings("#child").css("background-color", "Purple");
+
+
+     </script>
+</body>
+
+</html>

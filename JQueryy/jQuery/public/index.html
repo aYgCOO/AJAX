@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Basic of JQuery</title>
+</head>
+<style>
+     body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     }
+</style>
+
+<body>
+     <h1>This is JQuery</h1>
+     <p id="para">This is a great cross platform JavaScript library.</p>
+     <strong class="cssforjQuery">This is a strong line.</strong><br><br>
+
+     <button id="clkBtn"><strong>Click</strong></button> <br><br>
+     <div id="hoverTxt">
+          <strong>Hover here</strong>
+     </div><br><br>
+     <button id="dbClick"><strong>Double click</strong></button><br><br>
+     <button id="hide"><strong>Hide</strong></button> <button id="show"><strong>Show</strong></button>
+     <p id="hideAndShow">Press the 'Hide' button to hide this text or press the 'Show' button to show the tex again.</p>
+     <p>"The Document Object Model (DOM) is a platform and language-neutral interface that allows programs and scripts to dynamically access and update the content, structure, and style of a document."</p>
+     <div id="get">This is a text content</div><br>
+     <div id="set"></div>
+     <br>
+     <br>
+     
+     <a href="intermediate.html" target="_blank">Intermediate jQuery</a><br>
+     <a href="advance.html" target="_blank">Advance jQuery</a><br>
+     <script src="../js/jQuery-downleded-files/jquery-3.7.1.min.js"></script>
+     <script>
+          /* Basic of jQuery */
+          //1) Let's see the DOM is loaded or not
+          $(document).ready(function () {
+               console.log($ + "The DOM is loaded.");
+          })
+
+          //2) Use selectors to get the elements & Manipulating CSS
+          // Select elements by tags
+          $('h1').text('This is a heading');
+
+          // Select elements by id
+          $("a").css({textDecoration: "none", fontWeight: "bolder"});
+          $('#para').css({ color: "orange", fontWeight: "bolder" }); // Multiple css properties
+          $('#para').css("background-color", "red"); // Single css property 
+
+          // Select elements by class
+          $('.cssforjQuery').text("This is a bold line.");
+
+          //3) Event Handling
+          //Click event 
+          $("#clkBtn").click(function () {
+               alert("Button clicked!");
+          })
+
+          //Double Click event
+          $("#dbClick").dblclick(function () {
+               $(this).text("fuck you bitch");
+               $(this).css({ fontWeight: "bolder", color: "red" });
+          })
+
+          //Hover event
+          const hoverTxt = {
+               backgroundColor: "whitesmoke",
+               padding: "20px",
+               border: "none",
+               margin: "auto",
+               width: "100px"
+          }
+          $("#hoverTxt").css(hoverTxt).hover(function () {
+               $(this).css({ backgroundColor: "black", color: "white" });
+          })
+
+          //Hide & Show events
+          $("#hide").click(function () {
+               $("#hideAndShow").hide();
+          })
+          $("#show").click(function () {
+               $("#hideAndShow").show();
+          })
+
+          //4) Add and Remove classes
+          $("p").addClass("myp");
+          $("#hideAndShow").removeClass()
+
+          //5) Getting and Setting Content
+          // Get content
+          let htmlContent = $("#get").html();
+          let textContent = $("#get").text();
+          console.log(htmlContent);
+          console.log(textContent);
+
+          // Set content
+          $("#set").html("<p>New HTML content</p>");
+          $("#set").text("New text content");
+
+
+
+
+
+
+
+
+
+     </script>
+</body>
+
+</html>

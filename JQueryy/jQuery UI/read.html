@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Syntax and Concepts</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <style>
+        body {
+            font-family: cursive;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h2, h3, h4 {
+            color: #333;
+        }
+        pre {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-x: auto;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1>jQuery Syntax and Concepts</h1>
+        <h2>Basic jQuery Syntax and Concepts</h2>
+        <h3>1. Including jQuery</h3>
+        <p>To use jQuery, include it in your HTML file. You can do this by linking to a CDN or downloading it and including it locally.</p>
+        <pre><code>&lt;!-- CDN --&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">&lt;/script&gt;
+&lt;script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js">&lt;/script&gt;</code></pre>
+
+        <h3>2. Document Ready Event</h3>
+        <p>Ensures that the DOM is fully loaded before executing any jQuery code.</p>
+        <pre><code>$(document).ready(function(){
+    // Your code here
+});</code></pre>
+
+        <h3>3. Selecting Elements</h3>
+        <p>Use the <code>$()</code> function to select elements.</p>
+        <pre><code>$("p").hide(); // Hides all &lt;p&gt; elements</code></pre>
+
+        <h3>4. CSS Manipulation</h3>
+        <p>Change the CSS properties of elements.</p>
+        <pre><code>$("body").css("font-family", "'Segoe UI'");
+$("#main").css({ padding: "20px", margin: "auto", width: "80vw"});
+$("a").css({ fontWeight: "bolder", textDecoration: "none" });</code></pre>
+
+        <h3>5. jQuery UI Components</h3>
+        <p>jQuery UI provides a set of user interface interactions, effects, widgets, and themes built on top of jQuery.</p>
+
+        <h4>Accordion</h4>
+        <pre><code>$("#accordion").accordion();</code></pre>
+
+        <h4>Tabs</h4>
+        <pre><code>$("#tabs").tabs();</code></pre>
+
+        <h4>Autocomplete</h4>
+        <pre><code>let arr = ["ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme"];
+$("#autocomplete").autocomplete({
+    source: arr,
+});</code></pre>
+
+        <h4>Button</h4>
+        <pre><code>$("#btn").button({
+    classes: {
+        "ui-button": "highlight"
+    }
+});</code></pre>
+
+        <h4>Draggable</h4>
+        <pre><code>$("#draggable").draggable();</code></pre>
+
+        <h4>Droppable</h4>
+        <pre><code>$("#droppable").droppable({
+    drop: function (event, ui) {
+        $(this).addClass("ui-state-highlight").find("p").html("Dropped!");
+    }
+});</code></pre>
+
+        <h4>Resizable</h4>
+        <pre><code>$("#resizable").resizable();</code></pre>
+
+        <h4>Dialog</h4>
+        <pre><code>$("#dialog").dialog();</code></pre>
+
+        <h4>Tooltip</h4>
+        <pre><code>$("#tooltip").tooltip();</code></pre>
+
+        <h4>Effects</h4>
+        <pre><code>$("#react").button().click(function () {
+    $("#effect").toggle("blind", {}, 500);
+});</code></pre>
+
+        <h4>Open Dialog</h4>
+        <pre><code>$("#pop").dialog({
+    modal: true,
+    autoOpen: false,
+    buttons: {
+        "Ok": function(){
+            $(this).dialog("close");
+        },
+        "Close": function(){
+            $(this).dialog("close");
+        }
+    }
+});
+$("#open-dialog").button().on("click", function(){
+    $("#pop").dialog("open");
+});</code></pre>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            console.log("jQuery UI is ready.");
+            
+            $("#main").css({ padding: "20px", margin: "auto", width: "80vw" });
+            $("a").css({ fontWeight: "bolder", textDecoration: "none" });
+
+            // Accordion jQuery component
+            $("#accordion").accordion();
+
+            // Tabs jQuery component
+            $("#tabs").tabs();
+
+            // Autocomplete jQuery component
+            let arr = ["ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme"];
+            $("#autocomplete").autocomplete({
+                source: arr,
+            });
+
+            // Button jQuery component
+            $("#btn").button({
+                classes: {
+                    "ui-button": "highlight"
+                }
+            });
+
+            // Draggable jQuery component
+            $("#draggable").draggable();
+
+            // Droppable jQuery component
+            $("#droppable").droppable({
+                drop: function (event, ui) {
+                    $(this).addClass("ui-state-highlight").find("p").html("Dropped!");
+                }
+            });
+
+            // Resizable jQuery component
+            $("#resizable").resizable();
+
+            // Dialog jQuery component
+            $("#dialog").dialog();
+
+            // Tooltip jQuery component
+            $("#tooltip").tooltip();
+
+            // Effects jQuery component
+            $("#react").button().click(function () {
+                $("#effect").toggle(
+                    "blind", {}, 500
+                );
+            });
+
+            // Open Dialog jQuery component
+            $("#pop").dialog({
+                modal: true,
+                autoOpen: false,
+                buttons: {
+                    "Ok": function () {
+                        $(this).dialog("close");
+                    },
+                    "Close": function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+            $("#open-dialog").button().on("click", function () {
+                $("#pop").dialog("open");
+            });
+        });
+    </script>
+</body>
+</html>

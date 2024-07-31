@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Advance jQuery</title>
+</head>
+<style>
+     body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     }
+</style>
+
+<body>
+     <h1>This is advance jQuery</h1>
+     <p></p>
+     <div id="myDiv"></div>
+     Hello, I am
+     <span></span> & I am
+     <span></span> years old .
+     <br>
+     <div id="dataDiv"></div>
+     <p>
+          My friends:
+          <strong></strong>
+          <strong></strong>
+          <strong></strong>
+          <strong></strong>
+          <strong></strong>
+     </p>
+     <div id="empData"></div>
+     <p>
+     <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+     </ul>
+     </p>
+     <button id="pressOne"><strong>Press 1</strong></button>
+     <button id="pressTwo"><strong>Press 2</strong></button>
+     <br><br>
+     <a href="index.html" target="_blank">Basic jQuery</a><br>
+     <a href="intermediate.html" target="_blank">Intermediate jQuery</a><br>
+     <script src="../js/jQuery-downleded-files/jquery-3.7.1.min.js"></script>
+     <script>
+          /*Advance of jQuery*/
+          $("a").css({ textDecoration: "none", fontWeight: "bolder" });
+          //1) Let's see the DOM is loaded or not
+          $(document).ready(function () {
+               console.log("DOM loaded successfully");
+          })
+
+          //2) Create custom plugins
+          $.fn.myPluginOne = function () {
+               this.css({
+                    color: "yellow",
+                    backgroundColor: "black",
+                    padding: "10px",
+                    textAlign: "center"
+               })
+          }
+          $("h1").myPluginOne();
+
+          $.fn.myPluginTwo = function () {
+               this.text("jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, and wraps them into methods that you can call with a single line of code.");
+          }
+
+          $("p:first").myPluginTwo();
+
+          //3) Deferred and promises
+          let Deferred = $.Deferred();
+          Deferred.done(function () {
+               console.log("Task completed");
+          });
+
+          Deferred.resolve();
+
+          // 3) Data methods
+          $("#myDiv").data("data flow", { first: "Ayanabha Chatterjee", last: 20 });
+          $("span").first().text($("#myDiv").data("data flow").first);
+          $("span").last().text($("#myDiv").data("data flow").last);
+
+          // Data methods with complex data
+          $("#dataDiv").data("flow", {
+               first: "Agnik",
+               second: "Shivam",
+               third: "Vivak",
+               fourth: "Souvik"
+          });
+
+          $("strong").eq(0).text($("#dataDiv").data("flow").first);
+          $("strong").eq(1).text($("#dataDiv").data("flow").second);
+          $("strong").eq(3).text($("#dataDiv").data("flow").third);
+          $("strong").eq(4).text($("#dataDiv").data("flow").fourth);
+
+          //Data methods with using plugins
+          $.fn.dataPlug = $("#empData").data("emp",
+               {
+                    emp1: { name: "Rahul", salary: 2900 },
+                    emp2: { name: "Amit", salary: 3000 },
+                    emp3: { name: "Rupal", salary: 4000 },
+                    emp4: { name: "Sristi", salary: 38000 },
+                    emp5: { name: "Apurva", salary: 20000 },
+                    emp6: { name: "Sujoy", salary: 300 }
+               });
+          $("li").eq(0).text($("#empData").data("emp").emp1.name + " [Monthly salary: " + $("#empData").data("emp").emp1.salary + "]");
+          $("li").eq(1).text($("#empData").data("emp").emp2.name + " [Monthly salary: " + $("#empData").data("emp").emp2.salary + "]");
+          $("li").eq(2).text($("#empData").data("emp").emp3.name + " [Monthly salary: " + $("#empData").data("emp").emp3.salary + "]");
+          $("li").eq(3).text($("#empData").data("emp").emp4.name + " [Monthly salary: " + $("#empData").data("emp").emp4.salary + "]");
+          $("li").eq(4).text($("#empData").data("emp").emp5.name + " [Monthly salary: " + $("#empData").data("emp").emp5.salary + "]");
+          $("li").eq(5).text($("#empData").data("emp").emp6.name + " [Monthly salary: " + $("#empData").data("emp").emp6.salary + "]");
+
+          //4) Event delegation 
+          $("#pressOne").on("click", function () {
+               alert("Press 1 clicked!");
+          })
+          $("#pressTwo").on("click", function () {
+               let buttonThree = "<button id='pressThree'><strong>Press 3<strong></button>";
+               setTimeout(function () {
+                    $("body").append(buttonThree);
+               }, 3000)
+
+          })
+          $("body").on("click", "#pressThree", function () {
+               alert("Press 3 clicked!");
+          });
+
+
+
+
+
+
+
+
+
+
+     </script>
+</body>
+
+</html>

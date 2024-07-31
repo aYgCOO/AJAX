@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="jquery-ui.min.css">
+    <title>jQuery UI Components </title>
+</head>
+
+<body>
+    <div id="main">
+        <h1>Components</h1>
+        <h3>All basic components in jQuery</h3>
+        
+        <!-- Accordion -->
+        <div id="accordion">
+            <h3>JavaScript</h3>
+            <p>JavaScript (JS) is a text-based, cross-platform, object-oriented programming language that developers use
+                to
+                make web pages interactive. It allows developers to add complex features to web pages.</p>
+            <h3>PHP</h3>
+            <p>PHP stands for Hypertext Preprocessor, and it's an open-source scripting language used to create dynamic
+                web
+                pages. It's embedded into HTML and is primarily used for server-side scripting, but can also be used for
+                command-line scripting and desktop applications</p>
+            <h3>Python</h3>
+            <p>Python is a free, open-source, cross-platform programming language that's used for many purposes,
+                including:
+                Web applications, Software development, Data science, Machine learning, Data analysis, Data conversion,
+                Data
+                management, Map automation, and Automating tasks</p>
+            <h3>Java</h3>
+            <p>Java is a popular, object-oriented programming language and computing platform that's used to build
+                applications and websites on many different types of devices. It's known for being reliable, easy to
+                use,
+                and simple.</p>
+
+        </div>
+
+        <!-- Tabs  -->
+        <div id="tabs">
+            <ul>
+                <li><a href="#tab-1">Tab 1</a></li>
+                <li><a href="#tab-2">Tab 2</a></li>
+                <li><a href="#tab-3">Tab 3</a></li>
+            </ul>
+            <div id="tab-1">
+                <p>PHP stands for Hypertext Preprocessor, and it's an open-source scripting language used to create
+                    dynamic web
+                    pages. It's embedded into HTML and is primarily used for server-side scripting, but can also be used
+                    for
+                    command-line scripting and desktop applications</p>
+            </div>
+            <div id="tab-2">
+                <p>Python is a free, open-source, cross-platform programming language that's used for many purposes,
+                    including:
+                    Web applications, Software development, Data science, Machine learning, Data analysis, Data
+                    conversion, Data
+                    management, Map automation, and Automating tasks</p>
+            </div>
+            <div id="tab-3">
+                <p>Java is a popular, object-oriented programming language and computing platform that's used to build
+                    applications and websites on many different types of devices. It's known for being reliable, easy to
+                    use,
+                    and simple.</p>
+            </div>
+        </div>
+
+
+        <!-- Autocomplete -->
+        <label for="auto" class="ui-widget-content">Autocomplete</label>
+        <input type="text" name="autocomplete" id="autocomplete">
+
+        <!-- Button  -->
+        <button id="btn">Search</button>
+
+        <!-- Draggable -->
+        <div id="draggable" class="ui-widget-content">
+            <p>Drag me</p>
+        </div>
+
+        <!-- Droppable -->
+        <div id="dragGable" class="ui-widget-content">
+            <p>Drag and drop</p>
+        </div>
+        <div id="droppable">
+            <p>Touch and drop</p>
+        </div>
+
+        <!-- Resizable -->
+        <div id="resizable" class="ui-widget-content">
+            <h3 class="ui-widget-content">Resizable</h3>
+        </div>
+
+        <!-- Dialog -->
+        <div id="dialog" title="">
+            <h3>What is C++?</h3>
+            <p>C++ is a cross-platform language that can be used to create performance applications. as an extension to the C language.
+                C++ gives programmers a high level of control over system resources and memory.<p></p>
+                <p>The language was updated 4 major times in 2011, 2014, 2017, and 2020 to C++11, C++14, C++17, C++20.</p>
+        </div>
+
+        <!-- Tooltip  -->
+        <p><a href="https://www.java.com/en/" id="tooltip" title="https://www.java.com/en/">Java</a> is a popular,
+            object-oriented programming language and computing platform that's used to build
+            applications and websites on many different types of devices. It's known for being reliable, easy to
+            use,
+            and simple.</p>
+
+        <!-- Effects -->
+        <button id="react">Minimize</button>
+        <div id="effect" class="ui-widget-content">
+            <h3 class="ui-widget-content">Effect</h3>
+            <p>This is the example of effects in jQuery.</p>
+        </div>
+
+        <!-- Open Dialog  -->
+         <button id="open-dialog">Open Dialog</button>
+         <div id="pop">
+           <h2>Difference between C and C++</h2>
+                <p>C++ was developed as an extension of C, and both languages have almost the same syntax.
+                The main difference between C and C++ is that C++ support classes and objects, while C does not.</p>
+         </div>
+    </div>
+
+
+    <script src="jQuery-downleded-files/jquery-3.7.1.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log("jQuery UI is ready.");
+        });
+
+        $("body").css("font-family", "'Segoe UI");
+        $("#main").css({ padding: "20px", margin: "auto", width: "80vw"});
+        $("a").css({ fontWeight: "bolder", textDecoration: "none" });
+
+        //Accordion jQuery component
+        $("#accordion").css("font-family", "'Segoe UI").accordion();
+
+        //Tabs jQuery component
+        $("#tabs").css("font-family", "'Segoe UI").tabs();
+
+
+        //Autocomplete jQuery component
+        let arr = ["ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme"];
+        $("#autocomplete").css("font-family", "'Segoe UI").autocomplete({
+            source: arr,
+        })
+
+        //Button jQuery component
+        $("#btn").css("font-family", "'Segoe UI").button({
+            classes: {
+                "ui-button": "highlight"
+            }
+        });
+
+        //Draggable jQuery component
+        $("#draggable").css("padding", "20px").draggable();
+
+        //Droppable jQuery component
+        $("#dragGable").css("padding", "20px").draggable();
+        $("#droppable").droppable({
+            drop: function (event, ui) {
+                $(this).css("padding", "20px").addClass("ui-state-highlight").find("p").html("Dropped!");
+            }
+        })
+
+        //Resizable jQuery component
+        $("#resizable").resizable();
+        $(".ui-widget-content").css("padding", "20px");
+
+        //Dialog jQuery component
+        $("#dialog").css("font-family", "'Segoe UI").dialog();
+
+        //Tooltip jQuery component
+        $("#tooltip").tooltip();
+
+        //Effects jQuery component
+        $("#react").button({
+            "ui-button": 'highlight',
+        }).click(function () {
+            $("#effect").toggle(
+                "blind", {}, 500
+            )
+        })
+
+        //Open Dialog jQuery component
+        $("#pop").css("font-family", "'Segoe UI").dialog({
+            modal: true,
+            autoOpen: false,
+            buttons: {
+                "Ok":function(){
+                    $(this).dialog("close")
+                },
+                "Close":function(){
+                    $(this).dialog("close")
+                }
+            }
+        }) 
+        $("#open-dialog").button({ classes:{
+            "ui-button":'highlight',
+        }}).on("click", function(){
+            $("#pop").dialog("open")
+        })
+        
+
+
+
+    </script>
+</body>
+
+</html>
